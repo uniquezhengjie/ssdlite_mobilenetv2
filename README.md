@@ -6,17 +6,17 @@ This projects use TensorFlow object detection API and MobileNetV2 SSDLite model 
 
 ### install tensorflow2 and opencv
 
-    ``` bash
-    pip install -r requirements.txt
-    ```
+```bash
+pip install -r requirements.txt
+```
 
 ### install tensorflow models API
 
-    ``` bash
-    git clone https://github.com/tensorflow/models.git 
-    cd models/research
-    export PYTHONPATH=$PYTHONPATH:`pwd`:`pwd`/slim 
-    ```
+```bash
+git clone https://github.com/tensorflow/models.git 
+cd models/research
+export PYTHONPATH=$PYTHONPATH:`pwd`:`pwd`/slim 
+```
 
 ## COCO dataset
 
@@ -31,9 +31,9 @@ This projects use TensorFlow object detection API and MobileNetV2 SSDLite model 
 
 ## How to generate tf_record 
 
-    ``` bash
-    python train/create_coco_tf_record_without_test.py
-    ```
+```bash
+python train/create_coco_tf_record_without_test.py
+```
 
 ## Train from scatch
 
@@ -43,65 +43,65 @@ reference research/object_detection/samples/configs ssdlite_mobilenet_edgetpu_32
 
 I set batch 256 ，lr base 0.4，400k num_steps
 
-    ``` bash
-    python train_coco.py
-    ```
+```bash
+python train_coco.py
+```
 
 ## Saved model
 
 Inference version saved model:
 
-    ``` bash
-    python evaluation/export_inference_saved_model.py
-    ```
+```bash
+python evaluation/export_inference_saved_model.py
+```
 
 Tflite version saved model:
 
-    ``` bash
-    python evaluation/export_tflite_saved_model.py
-    ```
+```bash
+python evaluation/export_tflite_saved_model.py
+```
 
 ## Convert to tflite
 
-    ``` bash
-    python evaluation/convert2tflite.py
-    ```
+```bash
+python evaluation/convert2tflite.py
+```
 
 ## Create txt labels
 
-    ``` bash
-    python evaluation/generate_txt_labels.py
-    ``` 
+```bash
+python evaluation/generate_txt_labels.py
+``` 
 
 ## Evaluation
 
-    eval float32 model:
+eval float32 model:
 
-    ``` bash
-    python evaluation/eval_coco_tfmodel.py
-    ```
+```bash
+python evaluation/eval_coco_tfmodel.py
+```
 
-    eval int8 model:
+eval int8 model:
 
-    ``` bash
-    python evaluation/eval_coco_tflite.py
-    ```
+```bash
+python evaluation/eval_coco_tflite.py
+```
 
 ## Pretrain model
 
-    ssdlite_mobilenet_v2  aphla=0.5 input_size = 200 x 200:
+ssdlite_mobilenet_v2  aphla=0.5 input_size = 200 x 200:
 
-    checkpoint: coco_model
+checkpoint: coco_model
 
-    tflite: 
+tflite: 
 
 ## Train on your own dataset
     
-    change config file ssdlite_mobilenet_v2_0.5_200x200_coco.config:
+change config file ssdlite_mobilenet_v2_0.5_200x200_coco.config:
 
-    set pretrain model
+set pretrain model
 
-    change lr and num_steps
+change lr and num_steps
 
 
 
