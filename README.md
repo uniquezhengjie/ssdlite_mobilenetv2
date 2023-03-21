@@ -89,19 +89,21 @@ python evaluation/eval_coco_tflite.py
 
 ## Pretrain model
 
-ssdlite_mobilenet_v2  aphla=0.5 input_size = 200 x 200:
+ssdlite_mobilenet_v2  
 
-checkpoint: coco_model
+setting: aphla=0.5 and input_size = 200 x 200:
 
-tflite: 
+checkpoint: coco_model/
+
+tflite: ssdlite_mobilenet_v2_coco_0.5_200x200.tflite
 
 ## Train on your own dataset
     
-change config file ssdlite_mobilenet_v2_0.5_200x200_coco.config:
+Change config file ssdlite_mobilenet_v2_0.5_200x200_coco.config:
 
-set pretrain model
+1. Set pretrain model
 
-change lr and num_steps
+2. Change lr and num_steps
 
 
 
